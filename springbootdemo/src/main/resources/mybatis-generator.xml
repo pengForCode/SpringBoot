@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 指定数据库连接驱动jara地址 -->
+    <classPathEntry
+            location="F:/Program Files (x86)/MySQL/mysql-connector-java-5.1.27.jar" />
+<context id="myBatis3"  targetRuntime="MyBatis3">
+    <!--数据库链接地址账号密码-->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                    connectionURL="jdbc:mysql://localhost:3306/user" userId="root" password="1998">
+    </jdbcConnection>
+
+    <!--生成DataObject类存放位置-->
+    <javaModelGenerator targetPackage="com.example.springbootdemo.pojo" targetProject="src/main/java">
+        <property name="enableSubPackages" value="true"/>
+        <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+    <!--生成映射文件存放位置-->
+    <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+        <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+
+    <!--生成Dao类存放位置-->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.springbootdemo.mapper"
+                         targetProject="src/main/java">
+        <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+
+    <!--生成对应表及类名-->
+    <table tableName="user_info" domainObjectName="User" enableCountByExample="false"
+           enableUpdateByExample="false" enableDeleteByExample="false"
+           enableSelectByExample="false" selectByExampleQueryId="false" ></table>
+    <table tableName="user_password" domainObjectName="UserPasswordDO" enableCountByExample="false"
+           enableUpdateByExample="false" enableDeleteByExample="false"
+           enableSelectByExample="false" selectByExampleQueryId="false"></table>
+</context>
+</generatorConfiguration>
